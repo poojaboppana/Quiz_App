@@ -14,7 +14,11 @@ let userAnswers = [];
 let timer;
 let timeLeft = 10;
 
-let quizData = [
+
+const shuffleArray = array => array.slice().sort(() => Math.random() - 0.5);
+
+
+let quizData = shuffleArray([
     {
         question: "What does HTML stand for?",
         a: "Hypertext Markup Language",
@@ -71,13 +75,85 @@ let quizData = [
         d: "h4",
         correct: "a",
     },
-   
     {
         question: "What does JS stand for?",
         a: "JavaScript",
         b: "JavaServer",
         c: "JustScript",
         d: "JScript",
+        correct: "a",
+    },
+    {
+        question: "What does HTML stand for?",
+        a: "Markup",
+        b: "Language",
+        c: "Script",
+        d: "Style",
+        correct: "b",
+    },
+    {
+        question: "Which tag is used for a paragraph in HTML?",
+        a: "div",
+        b: "p",
+        c: "span",
+        d: "head",
+        correct: "b",
+    },
+    {
+        question: "Which property is used to change the background color in CSS?",
+        a: "color",
+        b: "background",
+        c: "border",
+        d: "padding",
+        correct: "b",
+    },
+    {
+        question: "Which method is used to add an element in JavaScript?",
+        a: "append",
+        b: "push",
+        c: "add",
+        d: "concat",
+        correct: "b",
+    },
+    {
+        question: "Which tag is used to include a JavaScript file?",
+        a: "link",
+        b: "style",
+        c: "script",
+        d: "meta",
+        correct: "c",
+    },
+    {
+        question: "Which attribute is used to provide a unique identifier in HTML?",
+        a: "class",
+        b: "id",
+        c: "name",
+        d: "title",
+        correct: "b",
+    },
+
+    {
+        question: "Which keyword is used to declare a variable in JavaScript?",
+        a: "var",
+        b: "let",
+        c: "const",
+        d: "all",
+        correct: "d",
+    },
+    {
+        question: "Which HTML tag is used for a hyperlink?",
+        a: "a",
+        b: "link",
+        c: "href",
+        d: "ul",
+        correct: "a",
+    },
+    {
+        question: "Which CSS property is used to make text bold?",
+        a: "font-weight",
+        b: "bold",
+        c: "font-style",
+        d: "text-style",
         correct: "a",
     },
     {
@@ -88,9 +164,7 @@ let quizData = [
         d: "list",
         correct: "a",
     }
-];
-
-const shuffleArray = array => array.slice().sort(() => Math.random() - 0.5);
+]).slice(0, Max_questions);
 
 const startTimer = () => {
     timeLeft = 10;
@@ -184,4 +258,5 @@ const createQuestion = () => {
 
 nextBtn.addEventListener("click", handleNextQuestion);
 
+// Start the quiz by creating the first question
 createQuestion();
